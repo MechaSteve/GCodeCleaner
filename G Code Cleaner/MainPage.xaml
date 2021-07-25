@@ -1,0 +1,51 @@
+﻿<Page
+    x:Class="G_Code_Cleaner.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:G_Code_Cleaner"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="LayoutRoot" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,10,12,12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="Input" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <Button x:Name="LoadAFileButton" Content="Load" Margin="10,10,10,10" Click="LoadAFileButton_Click"/>
+                <TextBlock TextWrapping="Wrap" Style="{ThemeResource CaptionTextBlockStyle}" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    Select Source File.
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Row="3" Orientation="Horizontal">
+                <TextBox Name="tbMinimum" IsReadOnly="false" Width="100"  Header="Minimum:" Margin="10,10,10,10" Text="0.10"/>
+            </StackPanel>
+            <Button Grid.Row="4" x:Name="ProcessFileButton" Content="Process" Margin="10,10,10,10" Click="ProcessFileButton_Click"/>
+            <StackPanel Grid.Row="5" Orientation="Horizontal">
+                <TextBox Name="tbLinesRead" IsReadOnly="True" Width="100"  Header="Read:" Margin="10,10,10,10"/>
+                <TextBox Name="tbLinesRemoved" IsReadOnly="True" Width="100" Header="Removed:" Margin="10,10,10,10"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <Button x:Name="SaveAFileButton" Content="Save" Margin="10,10,10,10" Click="SaveAFileButton_Click"/>
+                <TextBlock TextWrapping="Wrap" Style="{StaticResource CaptionTextBlockStyle}" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    Select Save Location.
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="Output" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock x:Name="OutputTextBlock" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="Wrap"/>
+        </Grid>
+    </Grid>
+</Page>
